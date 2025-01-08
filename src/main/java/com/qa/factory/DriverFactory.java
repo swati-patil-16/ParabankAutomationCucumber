@@ -2,6 +2,7 @@ package com.qa.factory;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -13,8 +14,12 @@ public class DriverFactory {
     public  WebDriver init_driver(String browserName){
         if(browserName.equals("chrome"))
         {
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1080");
 
-            tldriver.set(new ChromeDriver());
+            tldriver.set(new ChromeDriver(options));
+
+
         }
         else if(browserName.equals("edge"))
         {
