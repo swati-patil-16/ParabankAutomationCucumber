@@ -14,6 +14,8 @@ public class DriverFactory {
     public  WebDriver init_driver(String browserName){
         if(browserName.equals("chrome"))
         {
+
+            //Adding headless browser code
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1080");
 
