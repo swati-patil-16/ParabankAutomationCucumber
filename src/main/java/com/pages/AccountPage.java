@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AccountPage {
- ///making changed in AccountPage
+ ///making changes in AccountPage
 
 
     private WebDriver driver;
