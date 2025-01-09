@@ -41,6 +41,7 @@ public class ApplicationHooks {
     public void tearDown(Scenario scenario){
         if(scenario.isFailed())
         {
+            // SS code
             String screenshotName= scenario.getName().replaceAll(" ","_");
             byte[] sourcePath = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
             scenario.attach(sourcePath,"image/png",screenshotName);
