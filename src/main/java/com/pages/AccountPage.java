@@ -8,17 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AccountPage {
+ ///making changed in AccountPage
+
 
     private WebDriver driver;
     private By accountSection = By.xpath("//div[@id='leftPanel']/ul/li");
-
 
     public AccountPage(WebDriver driver)
     {
         this.driver=driver;
     }
-
-
 
     public int getAccountSectionCount()
     {
