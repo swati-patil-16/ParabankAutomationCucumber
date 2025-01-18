@@ -32,7 +32,7 @@ import org.testng.annotations.DataProvider;
         plugin = {"pretty",
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
                 "rerun:target/failedrerun.txt"
-        },
+        }
         //tags = "@Login"
 
 
