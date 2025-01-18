@@ -35,4 +35,4 @@ jobs:
 
       # Step 4: Install Dependencies and Run Tests with Maven
       - name: Build and Test with Maven
-        run: mvn clean test
+        run: mvn clean test -Dtest=MyTestRunner
