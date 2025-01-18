@@ -1,0 +1,38 @@
+
+name: Scheduled Java Automation Tests on Windows
+
+on:
+  schedule:
+    # Run the workflow every 15 mins
+    - cron: '*/15 * * * *'
+
+  workflow_dispatch: # Allows manual trigger for testing
+
+jobs:
+  run-java-tests:
+    runs-on: windows-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Java (for example, JDK 17)
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '8'
+          distribution: 'temurin'  # Use Adoptium (formerly AdoptOpenJDK)
+
+      # Step 3: Cache Maven dependencies (if using Maven)
+      - name: Cache Maven Dependencies
+        uses: actions/cache@v3
+        with:
+          path: C:\Users\runneradmin\.m2\repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      # Step 4: Install Dependencies and Run Tests with Maven
+      - name: Build and Test with Maven
+        run: mvn clean test
